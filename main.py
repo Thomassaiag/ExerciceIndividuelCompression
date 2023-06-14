@@ -36,8 +36,17 @@ def convertTablewithDict(tableToConvert,dictToCheck):
         convertedTable.append(dictToCheck.get(element,element))
     return convertedTable
             
+def invertDict(inputDictionnary):
+    invertedDict={}
+    for key, value in inputDictionnary.items():
+        invertedDict[value]=key
+    return invertedDict 
 
-list=createListFromText(input)
-convertedTable=convertTablewithDict(list,dictionnaire)
-string=createTextFromList(convertedTable)
-print(string)
+
+# list=createListFromText(input)
+# convertedTable=convertTablewithDict(list,dictionnaire)
+# string=createTextFromList(convertedTable)
+# print(string)
+
+print ("dictionnaire: "+str(dictionnaire))
+print("invertedDict: "+str(invertDict(dictionnaire)))
