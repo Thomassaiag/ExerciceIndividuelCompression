@@ -28,7 +28,6 @@ def createListFromText(inputText):
 #conversion du tableau en string
 def createTextFromList(inputTable):
     inputTuple=tuple(inputTable)
-    print(inputTuple)
     stringText=" ".join(inputTuple)
     return stringText
 
@@ -48,13 +47,28 @@ def invertDict(inputDictionnary):
     return invertedDict 
 
 
+def createDictionnary(tableToConvertInDict):
+    newDict={}
+    for element in tableToConvertInDict:
+        if newDict.get(element)!= None:
+            newDict[element]+=1
+        else:
+            newDict[element]=1    
+    return newDict       
+    
+
 compressedList=createListFromText(input)
+# print(compressedList)
 compressedConvertedTable=convertTablewithDict(compressedList,dictionnaire)
 CompressedString=createTextFromList(compressedConvertedTable)
-print(CompressedString)
+# print(CompressedString)
 
 
 decompressedList=createListFromText(CompressedString)
 decompressedConverteTable=convertTablewithDict(decompressedList,invertDict(dictionnaire))
 decompressedString=createTextFromList(decompressedConverteTable)
-print(decompressedString)
+# print(decompressedString)
+
+
+
+print (createDictionnary(compressedList))
