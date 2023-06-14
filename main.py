@@ -19,23 +19,28 @@ dictionnaire={'texte': '1',
 
 tableToConvert=['mais', 'ceci', 'est', 'un', 'long', 'faux-texte']
 
+#conversion de la string en tableau
 def createListFromText(inputText):
     tableauText=inputText.split(" ")
     return tableauText
 
+
+#conversion du tableau en string
 def createTextFromList(inputTable):
     inputTuple=tuple(inputTable)
     print(inputTuple)
     stringText=" ".join(inputTuple)
     return stringText
 
-
+#conversion du tableau avec les valeur du dictionnaire
 def convertTablewithDict(tableToConvert,dictToCheck):
     convertedTable=[]
     for element in tableToConvert:
         convertedTable.append(dictToCheck.get(element,element))
     return convertedTable
             
+
+#inversion du dictionnaires: les clés deviennent les valeurs et les valeurs deviennent des clés
 def invertDict(inputDictionnary):
     invertedDict={}
     for key, value in inputDictionnary.items():
@@ -43,10 +48,13 @@ def invertDict(inputDictionnary):
     return invertedDict 
 
 
-# list=createListFromText(input)
-# convertedTable=convertTablewithDict(list,dictionnaire)
-# string=createTextFromList(convertedTable)
-# print(string)
+compressedList=createListFromText(input)
+compressedConvertedTable=convertTablewithDict(compressedList,dictionnaire)
+CompressedString=createTextFromList(compressedConvertedTable)
+print(CompressedString)
 
-print ("dictionnaire: "+str(dictionnaire))
-print("invertedDict: "+str(invertDict(dictionnaire)))
+
+decompressedList=createListFromText(CompressedString)
+decompressedConverteTable=convertTablewithDict(decompressedList,invertDict(dictionnaire))
+decompressedString=createTextFromList(decompressedConverteTable)
+print(decompressedString)
